@@ -1,0 +1,32 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coderravi7870/File-Sharing.git"
+  },
+  "author": "Ravi Shankar Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coderravi7870/File-Sharing/issues"
+  },
+  "homepage": "https://github.com/coderravi7870/File-Sharing#readme",
+  "dependencies": {
+    "cloudinary": "^2.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.4",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.14",
+    "nodemon": "^3.1.4",
+    "uuid": "^10.0.0"
+  }
+}
