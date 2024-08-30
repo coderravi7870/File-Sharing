@@ -18,7 +18,7 @@ const App = () => {
   const handleFileInput = async (e) => {
     const avatar = e.target.files[0];
     setFile(avatar);
-    setLink(`https://file-sharing-backend-y7ba.onrender.com/files/showfile/${uuid}`); // This is just a placeholder
+    uuid.length > 0 && setLink(`https://file-sharing-backend-y7ba.onrender.com/files/showfile/${uuid}`); // This is just a placeholder
 
     if (avatar) {
       const newFormData = new FormData();
@@ -30,8 +30,7 @@ const App = () => {
           body: newFormData,
         });
         const result = await response.json();
-        console.log(result);
-
+        
         if (result) {
           setUuid(result.uuid);
         }
