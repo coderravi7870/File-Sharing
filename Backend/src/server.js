@@ -15,7 +15,7 @@ app.set('view engine','ejs');
 app.use(express.static('public'));
 
 // file routes
-const fileRoutes = require("../routes/fileRoutes");
+const fileRoutes = require("./routes/fileRoutes");
 app.use("/files",fileRoutes);
 
 
