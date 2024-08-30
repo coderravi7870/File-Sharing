@@ -48,6 +48,8 @@ const App = () => {
         notify("copy successfully!");
         setFile(null); // Clear state
         fileInputRef.current.value = ""; // Clear file input
+        setEmailFrom("");
+        setEmailTo("");
       })
       .catch((error) => {
         console.error("Failed to copy to clipboard:", error);
@@ -73,6 +75,8 @@ const App = () => {
         setFile(null); // Clear state
         fileInputRef.current.value = ""; // Clear file input
         toast(`successfully send!`);
+        setEmailFrom("");
+        setEmailTo("");
       }
     } catch (error) {
       console.error("Error sending email:", error);
