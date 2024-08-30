@@ -3,7 +3,7 @@ const app = express();
 const cors = require('cors');
 const path = require('path');
 require("dotenv").config();
-const connetion = require("./config/db");
+const connetion = require("../config/db");
 connetion();
 
 app.use(express.json());
@@ -15,7 +15,7 @@ app.set('view engine','ejs');
 app.use(express.static('public'));
 
 // file routes
-const fileRoutes = require("./routes/fileRoutes");
+const fileRoutes = require("../routes/fileRoutes");
 app.use("/files",fileRoutes);
 
 
