@@ -34,7 +34,7 @@ exports.uploadFile = async (req, res) => {
     console.error("Error uploading file:", error);
     return res.status(500).json({ error: "Something went wrong..." });
   }
-};
+}; 
 
 
 exports.showFile = async (req, res) => {
@@ -46,6 +46,9 @@ exports.showFile = async (req, res) => {
     if (!file_data) {
         return res.render("download",{error:"Link has expired."});
     }
+    
+    console.log(`${process.env.APP_BASE_URL}/files/download/${file_data.uuid}`);
+    
     return res.render("download",{uuid:file_data.uuid,
         fileName:file_data.filename,
         fileSize:file_data.size,
@@ -62,7 +65,8 @@ exports.downloadFile = async (req, res) => {
   try {
     const {uuid}  = req.params;
     const file_data = await File.findOne({uuid});
-    // console.log("uuid: " + uuid);
+    
+    console.log("uuid");
     
     
     if (!file_data) {
@@ -85,8 +89,7 @@ exports.sendEmail = async (req, res) => {
 
   // validation check
   const {uuid,emailTo,emailFrom} = req.body;
-  
-  
+
   if(emailFrom === emailTo){
     return res.send({error:"emailFrom and emailTo mail should be differnt."});
   }
@@ -119,12 +122,13 @@ exports.sendEmail = async (req, res) => {
    file_data.reciever = emailTo;
 
    const response = await file_data.save();
-
+   
+   
    // send email
    sendMail({from: emailFrom, to: emailTo,subject:"inShare file sharing",
     text:`${emailFrom} shared a file with you`,
     html: require("../services/emailTemplate")({emailFrom:emailFrom,
-      downloadLink:`${process.env.APP_BASE_URL}/files/showfile/${uuid}`,
+      downloadLink:`https://file-sharing-backend-y7ba.onrender.com/files/showfile/${uuid}`,
       size: parseInt(file_data.size/1000)+"KB",
       expires: "24 hours"
     })

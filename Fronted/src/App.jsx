@@ -25,7 +25,7 @@ const App = () => {
       newFormData.append("myfile", avatar);
 
       try {
-        const response = await fetch("http://localhost:5000/files/upload", {
+        const response = await fetch("https://file-sharing-backend-y7ba.onrender.com/files/upload", {
           method: "POST",
           body: newFormData,
         });
@@ -57,7 +57,7 @@ const App = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/files/sendemail", {
+      const response = await fetch("https://file-sharing-backend-y7ba.onrender.com/files/sendemail", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
