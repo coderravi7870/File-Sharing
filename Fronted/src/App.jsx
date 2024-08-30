@@ -18,7 +18,7 @@ const App = () => {
   const handleFileInput = async (e) => {
     const avatar = e.target.files[0];
     setFile(avatar);
-    setLink("flsdkflsdjkflskdjflskdfljskdflsfjlsdjflsdjflsdlfjsdlfjsdlfsldf"); // This is just a placeholder
+    setLink(`https://file-sharing-backend-y7ba.onrender.com/files/showfile/${uuid}`); // This is just a placeholder
 
     if (avatar) {
       const newFormData = new FormData();
