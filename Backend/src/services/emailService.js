@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
 const sendEmail =async ({from,to,subject,text,html})=>{
     try {
         const info = await transporter.sendMail({
-            from : `inShare <${from}`,
+            from ,
             to,
             subject, 
             text,
